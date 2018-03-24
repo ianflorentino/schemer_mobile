@@ -29,9 +29,9 @@ class HomeScreen extends Component {
     return (
       <View>
         <Text>HomeScreen</Text>
-				<TouchableOpacity onPress={this.logoutAction}>
-					<DefaultText>{"Logout"}</DefaultText>
-				</TouchableOpacity>
+        <TouchableOpacity onPress={this.logoutAction}>
+          <DefaultText>{"Logout"}</DefaultText>
+        </TouchableOpacity>
       </View>
     )
   }

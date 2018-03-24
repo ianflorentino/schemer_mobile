@@ -6,36 +6,36 @@ import Button from '../../components/Button'
 import DefaultText from '../../components/DefaultText'
 
 export default class LandingScreen extends Component {
-	constructor(props) {
-		super(props)
-		this.loginAction = this.loginAction.bind(this)
-		this.signUpAction = this.signUpAction.bind(this)
-	}
+  constructor(props) {
+    super(props)
+    this.loginAction = this.loginAction.bind(this)
+    this.signUpAction = this.signUpAction.bind(this)
+  }
 
-	loginAction() {
-		const { navigate } = this.props.navigation
-		navigate('LoginScreen')	
-	}
+  loginAction() {
+    const { navigate } = this.props.navigation
+    navigate('LoginScreen')
+  }
 
-	signUpAction() {
-		const { navigate } = this.props.navigation
-		navigate('SignupScreen')	
-	}
+  signUpAction() {
+    const { navigate } = this.props.navigation
+    navigate('SignupScreen')
+  }
 
   render() {
     return (
       <View style={styles.container}>
-				<StatusBar barStyle='dark-content' />
-				<DefaultText style={styles.header}>schemer</DefaultText>
-				<DefaultText style={styles.subTitle}>create.plan.scheme.</DefaultText>
-				<Button 
-					style={styles.signUp}
-					width="100%"
-					text="Sign up"
-					action={this.signUpAction} />
-				<TouchableOpacity style={styles.loginContainer} onPress={this.loginAction}>
-					<DefaultText style={styles.login}>{"I'm Already Scheming"}</DefaultText>
-				</TouchableOpacity>
+        <StatusBar barStyle='dark-content' />
+        <DefaultText style={styles.header}>schemer</DefaultText>
+        <DefaultText style={styles.subTitle}>create.plan.scheme.</DefaultText>
+        <Button 
+          style={styles.signUp}
+          width="100%"
+          text="Sign up"
+          action={this.signUpAction} />
+        <TouchableOpacity style={styles.loginContainer} onPress={this.loginAction}>
+          <DefaultText style={styles.login}>{"I'm Already Scheming"}</DefaultText>
+        </TouchableOpacity>
       </View>
     )
   }
@@ -43,9 +43,9 @@ export default class LandingScreen extends Component {
 
 const styles = StyleSheet.create({
   container: {
-		flex: 1,
-		alignItems: 'center',
-		justifyContent: 'center',
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
     paddingLeft: 40,
     paddingRight: 40,
     backgroundColor: Variables.white,
@@ -55,32 +55,32 @@ const styles = StyleSheet.create({
     height: Constants.statusBarHeight,
   },
   header: {
-		fontWeight: "bold",
-		fontSize: 75,
+    fontWeight: "bold",
+    fontSize: 75,
     letterSpacing: -5,
-		color: Variables.mainColor,
-		marginTop: -150
+    color: Variables.mainColor,
+    marginTop: -150
   },
-	subTitle: {
-		color: Variables.greyTextColor,
-		fontFamily: Variables.mainFont,
+  subTitle: {
+    color: Variables.greyTextColor,
+    fontFamily: Variables.mainFont,
     fontSize: 28,
-		marginTop: -20
-	},
-	bottomBtns: {
-		paddingTop: 150,
-		alignItems: 'center'
-	},
-	loginContainer: {
-		position: 'absolute',
-		bottom: 80
-	},
-	login: {
-		fontSize: 20,
-		color: Variables.secondaryColor
-	},
-	signUp: {
-		position: 'absolute',
-		bottom: 125
-	}
+    marginTop: -20
+    },
+  bottomBtns: {
+    paddingTop: 150,
+    alignItems: 'center'
+  },
+  loginContainer: {
+    position: 'absolute',
+    bottom: 80
+  },
+  login: {
+    fontSize: 20,
+    color: Variables.secondaryColor
+  },
+  signUp: {
+    position: 'absolute',
+    bottom: 125
+  }
 });

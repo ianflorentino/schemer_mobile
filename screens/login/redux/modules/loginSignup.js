@@ -123,19 +123,19 @@ const submitSignupEpic = (action$, {getState}) =>
 
 const persistRehydrateEpic = (action$, {getState}) =>
 	action$.ofType(PERSIST_REHYDRATE)
-		.switchMap(() => {
-			const state = getState()
-			const { isLoggedIn } = state.loginSignup
+    .switchMap(() => {
+      const state = getState()
+      const { isLoggedIn } = state.loginSignup
 
-			let returnObservable = isLoggedIn
-				? { type: "NOTUSED" } // have to return at least 1 action
-				: { type: USER_LOGGED_OUT } 
-		
-			return Observable.of(returnObservable)
-		})
+      let returnObservable = isLoggedIn
+        ? { type: "NOTUSED" } // have to return at least 1 action
+        : { type: USER_LOGGED_OUT }
+
+      return Observable.of(returnObservable)
+    })
 
 export const loginSignupEpic = combineEpics(
-	persistRehydrateEpic,
+  persistRehydrateEpic,
   submitLoginEpic,
   submitSignupEpic
 )
