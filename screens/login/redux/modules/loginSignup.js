@@ -2,7 +2,6 @@ import xhr from '../../../../utils/xhr.js'
 import { Observable } from 'rxjs'
 import { combineEpics } from 'redux-observable'
 import { SIGNUP_URL, LOGIN_URL } from '../routes'
-import { NavigationActions } from 'react-navigation'
 import { Alert } from 'react-native'
 
 const initialState = {
@@ -128,7 +127,7 @@ const persistRehydrateEpic = (action$, {getState}) =>
       const { isLoggedIn } = state.loginSignup
 
       let returnObservable = isLoggedIn
-        ? { type: "NOTUSED" } // have to return at least 1 action
+        ? { type: "ALREADY_LOGGED_IN" } // have to return at least 1 action
         : { type: USER_LOGGED_OUT }
 
       return Observable.of(returnObservable)

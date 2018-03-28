@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import { Alert, TouchableOpacity, StatusBar, StyleSheet, Text, View } from 'react-native'
+import { Alert, TouchableOpacity, StyleSheet, View } from 'react-native'
 import DefaultText from '../../components/DefaultText'
-import { connect } from 'react-redux';
-import * as loginActions from '../login/redux/modules/loginSignup';
+import Variables from '../../utils/variables'
+import { connect } from 'react-redux'
+import * as loginActions from '../login/redux/modules/loginSignup'
 
 class HomeScreen extends Component {
   constructor(props) {
@@ -27,8 +28,8 @@ class HomeScreen extends Component {
 
   render() {
     return (
-      <View>
-        <Text>HomeScreen</Text>
+      <View style={styles.container}>
+        <DefaultText>HomeScreen</DefaultText>
         <TouchableOpacity onPress={this.logoutAction}>
           <DefaultText>{"Logout"}</DefaultText>
         </TouchableOpacity>
@@ -38,3 +39,14 @@ class HomeScreen extends Component {
 }
 
 export default connect(null, loginActions)(HomeScreen);
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingLeft: 40,
+    paddingRight: 40,
+    backgroundColor: Variables.white,
+  }
+})

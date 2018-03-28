@@ -8,6 +8,8 @@ export default Variables = {
   textColor: '#1F2833',
   greyTextColor: '#C5C6C7',
   white: '#FFFFFF',
+  iconBlack: '#58595b',
+  lightBlack: '#353638',
 
   // fonts
   mainFont: 'Avenir Next',

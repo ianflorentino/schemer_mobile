@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { PersistGate } from 'redux-persist/integration/react'
 import { Provider } from 'react-redux'
 import Navigator from './Navigator'
+import BottomNav from './components/BottomNav'
 
 import configureStore from './store'
 
@@ -15,6 +16,7 @@ export default class Schemer extends Component {
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           <Navigator />
+          <BottomNav />
         </PersistGate>
       </Provider>
     )

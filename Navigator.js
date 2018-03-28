@@ -11,6 +11,8 @@ import LandingScreen from './screens/landing'
 import LoginScreen from './screens/login'
 import SignupScreen from './screens/signup'
 import HomeScreen from './screens/home'
+import AccountScreen from './screens/account'
+import EventNewScreen from './screens/event/new'
 
 import Variables from './utils/variables'
 
@@ -51,6 +53,24 @@ export const AppNavigator = new StackNavigator({
   HomeScreen: {
     screen: HomeScreen,
     navigationOptions: { 
+      headerStyle: {
+        backgroundColor: Variables.white,
+        borderBottomColor: Variables.white
+      }
+    }
+  },
+  AccountScreen: {
+    screen: AccountScreen,
+    navigationOptions: {
+      headerStyle: {
+        backgroundColor: Variables.white,
+        borderBottomColor: Variables.white
+      }
+    }
+  },
+  EventNewScreen: {
+    screen: EventNewScreen,
+    navigationOptions: {
       headerStyle: {
         backgroundColor: Variables.white,
         borderBottomColor: Variables.white
