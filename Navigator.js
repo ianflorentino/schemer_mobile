@@ -53,6 +53,7 @@ export const AppNavigator = new StackNavigator({
   HomeScreen: {
     screen: HomeScreen,
     navigationOptions: { 
+      title: "Events",
       headerStyle: {
         backgroundColor: Variables.white,
         borderBottomColor: Variables.white

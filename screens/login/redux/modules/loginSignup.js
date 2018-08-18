@@ -1,4 +1,4 @@
-import xhr from '../../../../utils/xhr.js'
+import xhr, { RENEW_TOKEN } from '../../../../utils/xhr.js'
 import { Observable } from 'rxjs'
 import { combineEpics } from 'redux-observable'
 import { SIGNUP_URL, LOGIN_URL } from '../routes'
@@ -88,14 +88,13 @@ const prepareSignupInformation = (getState) => {
 
 const submitLoginEpic = (action$, {getState}) =>
   action$.ofType(USER_LOGIN)
-    .switchMap(({payload,url}) => {
+    .switchMap(({ payload, url }) => {
       const body = Object.assign(payload, {grant_type: 'password'})
 
       return xhr({method: 'POST', body: body, url})
         .map(data => persistLogin(data.response))
-        .catch(e => Observable.of(
-          {type: USER_LOGIN_FAILED},
-          console.log(e)
+        .catch(response => Observable.of(
+          {type: USER_LOGIN_FAILED, response}
         ))
     })
 
@@ -107,16 +106,28 @@ const submitSignupEpic = (action$, {getState}) =>
         .from(xhr({method: 'POST', body: data, url}))
         .map(({email}) => {
           return {
-            type: USER_LOGIN,
+            type: USER_LOGIN
             payload: {
               login: email,
               password: data.password
             }
           }
         })
-        .catch(e => Observable.of(
-          {type: USER_SIGNUP_FAILED},
-          console.log(e)
+        .catch(response => Observable.of(
+          {type: USER_SIGNUP_FAILED, response}
+        ))
+    })
+
+const renewTokenEpic = (action$, {getState}) =>
+  action$.ofType(RENEW_TOKEN)
+    .switchMap(() => {
+      const state = getState()
+      const { refreshToken: refresh_token } = state.loginSignup
+      const body = { refresh_token, grant_type: 'refresh_token' }
+
+      return xhr({ method: 'POST', body, url: SIGNUP_URL })
+        .map(data => persistLogin(data.response))
+        .catch(response => Observable.of(
         ))
     })
 

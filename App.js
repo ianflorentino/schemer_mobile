@@ -7,8 +7,8 @@ import BottomNav from './components/BottomNav'
 import configureStore from './store'
 
 const configStore = configureStore()
-const store       = configStore.store
 const persistor   = configStore.persistor
+export const store = configStore.store // hacky to support importing Redux store errwhere
 
 export default class Schemer extends Component {
   render() {

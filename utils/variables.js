@@ -15,5 +15,6 @@ export default Variables = {
   mainFont: 'Avenir Next',
 
   // misc
-  stagingBaseUrl: STAGING_BASE_URL
+  stagingBaseUrl: STAGING_BASE_URL,
+  throttleTime: 30000
 }

@@ -1,10 +1,13 @@
-import { AppNavigator } from '../Navigator'
-import { NavigationActions } from 'react-navigation'
-import { USER_LOGGED_IN, USER_LOGGED_OUT } from '../screens/login/redux/modules/loginSignup'
+import { AppNavigator } from "../Navigator"
+import { NavigationActions } from "react-navigation"
+import {
+  USER_LOGGED_IN,
+  USER_LOGGED_OUT,
+} from "../screens/login/redux/modules/loginSignup"
 
-const NAVIGATE_TO_ACCOUNT   = 'NAVIGATE_TO_ACCOUNT'
-const NAVIGATE_TO_HOME      = 'NAVIGATE_TO_HOME'
-const NAVIGATE_TO_EVENT_NEW = 'NAVIGATE_TO_EVENT_NEW'
+const NAVIGATE_TO_ACCOUNT = "NAVIGATE_TO_ACCOUNT"
+const NAVIGATE_TO_HOME = "NAVIGATE_TO_HOME"
+const NAVIGATE_TO_EVENT_NEW = "NAVIGATE_TO_EVENT_NEW"
 
 const initialAction = { type: NavigationActions.Init }
 const initialState = AppNavigator.router.getStateForAction(initialAction)
@@ -19,81 +22,81 @@ export default (state = initialState, action) => {
           index: 0,
           actions: [
             NavigationActions.navigate({
-              routeName: 'AccountScreen'
-            })
-          ]
+              routeName: "AccountScreen",
+            }),
+          ],
         }),
         state
       )
-      break;
+      break
     case NAVIGATE_TO_HOME:
       newState = AppNavigator.router.getStateForAction(
         NavigationActions.reset({
           index: 0,
           actions: [
             NavigationActions.navigate({
-              routeName: 'HomeScreen'
-            })
-          ]
+              routeName: "HomeScreen",
+            }),
+          ],
         }),
         state
       )
-      break;
+      break
     case NAVIGATE_TO_EVENT_NEW:
       newState = AppNavigator.router.getStateForAction(
         NavigationActions.reset({
           index: 0,
           actions: [
             NavigationActions.navigate({
-              routeName: 'EventNewScreen'
-            })
-          ]
+              routeName: "EventNewScreen",
+            }),
+          ],
         }),
         state
       )
-      break;
+      break
     case USER_LOGGED_IN:
       newState = AppNavigator.router.getStateForAction(
         NavigationActions.reset({
           index: 0,
           actions: [
             NavigationActions.navigate({
-              routeName: 'HomeScreen'
-            })
-          ]
+              routeName: "HomeScreen",
+            }),
+          ],
         }),
         state
       )
-      break;
+      break
     case USER_LOGGED_OUT:
       newState = AppNavigator.router.getStateForAction(
         NavigationActions.reset({
           index: 0,
           actions: [
             NavigationActions.navigate({
-              routeName: 'LandingScreen'
-            })
-          ]
+              routeName: "LandingScreen",
+            }),
+          ],
         }),
         state
       )
-      break;
+      break
     default:
-      newState = AppNavigator.router.getStateForAction(action, state);
-      break;
+      newState = AppNavigator.router.getStateForAction(action, state)
+      break
   }
 
   return newState
 }
 
 export const navigateToAccount = () => ({
-  type: NAVIGATE_TO_ACCOUNT
+  type: NAVIGATE_TO_ACCOUNT,
 })
 
 export const navigateToHome = () => ({
-  type: NAVIGATE_TO_HOME
+  type: NAVIGATE_TO_HOME,
 })
 
 export const navigateToEventNew = () => ({
-  type: NAVIGATE_TO_EVENT_NEW
+  type: NAVIGATE_TO_EVENT_NEW,
 })

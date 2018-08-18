@@ -22,7 +22,7 @@ if (process.env.NODE_ENV === 'development') {
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['loginSignup', 'navigation']
+  whitelist: ['loginSignup', 'events', 'account', 'navigation']
 }
 
 const persistedReducer = persistReducer(persistConfig, appReducer)
